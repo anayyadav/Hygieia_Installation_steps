@@ -1,0 +1,80 @@
+Please make the enviroment variable for JAVA_HOME, M2_HOME,MongoDB,Nodejs,git 
+
+<DOWNLOAD HYIGIEA FROM HERE https://github.com/capitalone/Hygieia.git  and extract it into C drive  >
+
+
+1. Install jdk-8 (Mkae sure it should be jdk8 otherwise you will get some error )
+2. Install Maven 
+3. Install git 
+4. Install Node js
+5. Install MongoDB (Setup mongodb with mongod.cfg file in MongoDB_HOME) <https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/>
+6. open git bash or Windows power shell as admin and run following commands :
+
+    npm install -g bower 
+    npm install -g gulp 
+    
+7. Run the following coomand in mogodb 
+
+    db.createUser({user: "dashboarduser",pwd: "dashboarduser123",roles: [{role: "readWrite", db: "dashboarddb"}]})
+    
+8. Open Hygieia_Home and run 
+    mvn clean install package  <wait for some time>
+    console output at the end will be like this:
+    [INFO] com.capitalone.dashboard:Hygieia 2.0.5-SNAPSHOT .... SUCCESS [01:27 min]
+    [INFO] com.capitalone.dashboard:core ...................... SUCCESS [05:18 min]
+    [INFO] com.capitalone.dashboard:api ....................... SUCCESS [01:30 min]
+    [INFO] com.capitalone.dashboard:api-audit ................. SUCCESS [ 21.340 s]
+    [INFO] com.capitalone.dashboard:rally-collector ........... SUCCESS [ 16.084 s]
+    [INFO] com.capitalone.dashboard:artifactory-artifact-collector SUCCESS [  5.647 s]
+    [INFO] com.capitalone.dashboard:bamboo-build-collector .... SUCCESS [  6.718 s]
+    [INFO] com.capitalone.dashboard:jenkins-build-collector ... SUCCESS [  8.034 s]
+    [INFO] com.capitalone.dashboard:jenkins-cucumber-test-collector SUCCESS [  5.949 s]
+    [INFO] com.capitalone.dashboard:jenkins-codequality ....... SUCCESS [ 13.629 s]
+    [INFO] com.capitalone.dashboard:sonar-codequality-collector SUCCESS [  9.695 s]
+    [INFO] com.capitalone.dashboard:aws-cloud-collector ....... SUCCESS [ 27.612 s]
+    [INFO] com.capitalone.dashboard:udeploy-deployment-collector SUCCESS [  8.465 s]
+    [INFO] com.capitalone.dashboard:xldeploy-deployment-collector SUCCESS [ 13.214 s]
+    [INFO] com.capitalone.dashboard:jira-feature-collector .... SUCCESS [01:15 min]
+    [INFO] com.capitalone.dashboard:versionone-feature-collector SUCCESS [ 17.328 s]
+    [INFO] com.capitalone.dashboard:gitlab-feature-collector .. SUCCESS [ 11.660 s]
+    [INFO] com.capitalone.dashboard:chat-ops-collector ........ SUCCESS [  2.342 s]
+    [INFO] com.capitalone.dashboard:appdynamics-performance-collector SUCCESS [  9.562 s]
+    [INFO] com.capitalone.dashboard:bitbucket-scm-collector ... SUCCESS [  6.177 s]
+    [INFO] com.capitalone.dashboard:github-scm-collector ...... SUCCESS [  8.845 s]
+    [INFO] com.capitalone.dashboard:github-graphql-scm-collector SUCCESS [  9.428 s]
+    [INFO] com.capitalone.dashboard:subversion-collector ...... SUCCESS [ 19.131 s]
+    [INFO] com.capitalone.dashboard:gitlab-scm-collector ...... SUCCESS [ 11.276 s]
+    [INFO] com.capitalone.dashboard:hpsm-cmdb-collector ....... SUCCESS [  7.346 s]
+    [INFO] com.capitalone.dashboard:nexus-iq-collector ........ SUCCESS [  6.163 s]
+    [INFO] com.capitalone.dashboard:score-collector ........... SUCCESS [ 10.614 s]
+    [INFO] Hygieia Publisher Plugin ........................... SUCCESS [10:55 min]
+    [INFO] com.capitalone.dashboard:UI ........................ FAILURE [01:17 min]
+    [INFO] com.capitalone.dashboard:ui-tests 2.0.5-SNAPSHOT ... SKIPPED
+    
+    
+9. Install Bower & npm Packges on UI Folder
+    open Hygieia/UI/
+    run the following commands:
+    
+    npm install -g bower
+    npm install -g gulp
+    npm install
+    npm bower
+    gulp serve
+    
+    you will automatically connected to localhost:3000
+    
+10. Api connectivity 
+
+    Go to HYGIEIA_HOME/api/
+    run following commands:
+
+    1. mvn install 
+    2. create an application.properties file
+    3. cd target/
+    4. java -jar api.jar --spring.config.location=C:\Hygieia-master\api\src\main\resources\application.properties
+
+    now your api will be connected 
+    
+  
+  
