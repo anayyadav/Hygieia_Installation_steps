@@ -59,7 +59,7 @@ Please make the enviroment variable for JAVA_HOME, M2_HOME,MongoDB,Nodejs,git
     npm install -g bower
     npm install -g gulp
     npm install
-    npm bower
+    bower install
     gulp serve
     
     you will automatically connected to localhost:3000
